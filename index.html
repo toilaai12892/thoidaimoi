@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THOI DAI MOI | Verify Portal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+        :root {
+            --primary: #5865f2;
+            --accent: #9b59b6;
+            --bg: #0a0b10;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: var(--bg);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(88, 101, 242, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(155, 89, 182, 0.15) 0%, transparent 40%);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px 40px;
+            border-radius: 40px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo-area {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 30px;
+            margin: 0 auto 30px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 45px;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #fff, #a5a5a5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .btn-verify {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(88, 101, 242, 0.3);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-verify:hover {
+            transform: scale(1.05);
+            background: #4752c4;
+            box-shadow: 0 0 30px rgba(88, 101, 242, 0.6);
+        }
+
+        .footer {
+            margin-top: 35px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Hiệu ứng hạt bay nhẹ cho xịn */
+        .dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-area">T</div>
+        <h1>THOI DAI MOI OFFICIAL</h1>
+        <p>Chào mừng bạn đến với hệ thống xác thực của <b>THOI DAI MOI</b>. Vui lòng nhấn nút bên dưới để bắt đầu xác minh tài khoản.</p>
+        
+        <a href="#" id="verify-link" class="btn-verify">XÁC MINH NGAY</a>
+
+        <div class="footer">Powered by ken dzai <3</div>
+    </div>
+
+    <script>
+        // Justin nhớ dán cái link OAuth2 dài ngoằng vào đây nhen!
+        const oauth2URL = "https://discord.com/api/oauth2/authorize?client_id=1492223452319453277&redirect_uri=https%3A%2F%2Fthoidaimoi.vercel.app%2Fcallback&response_type=code&scope=identify%20guilds.join";
+        
+        document.getElementById('verify-link').href = oauth2URL;
+    </script>
+</body>
+</html>
